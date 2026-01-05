@@ -5,7 +5,7 @@ import numpy as np
 from astropy.coordinates import SkyCoord
 import astropy.units as u
 
-# Global parameters
+# Galactic latitude parameters
 GALACTIC_LAT = None  # Set to "north", "south", or None
 MW_DISK_LAT1 = 15.0   # Northern boundary of the Milky Way (degrees) - DO NOT CHANGE
 MW_DISK_LAT2 = -15.0  # Southern boundary of the Milky Way (degrees) - DO NOT CHANGE
