@@ -130,9 +130,9 @@ def generate_adql_scripts(output_dir="adql_queries"):
         # Generate filename with RA range and galactic latitude if applicable
         if GALACTIC_LAT is not None:
             gal_label = "galN" if GALACTIC_LAT == "north" else "galS"
-            filename = f"query_{gal_label}_ra_{ra_min:.2f}_{ra_max:.2f}_dec_{dec_min:.1f}_to_{dec_max:.1f}.adql"
+            filename = f"{gal_label}_r{ra_min:.2f}_{ra_max:.2f}_d{dec_min:.1f}_{dec_max:.1f}.adql"
         else:
-            filename = f"query_ra_{ra_min:.2f}_{ra_max:.2f}_dec_{dec_min:.1f}_to_{dec_max:.1f}.adql"
+            filename = f"r{ra_min:.2f}_{ra_max:.2f}_d{dec_min:.1f}_{dec_max:.1f}.adql"
         
         filepath = os.path.join(output_dir, filename)
         with open(filepath, "w") as f:
