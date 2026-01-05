@@ -1,6 +1,6 @@
 # noirlab-query-tool
 
-Automated tool for submitting ADQL queries to [NOIRLab's Data Lab](https://datalab.noirlab.edu/). This tool handles batch processing of multiple queries while keeping track of what's been completed.
+Semi-automated tool for submitting ADQL queries to [NOIRLab's Data Lab](https://datalab.noirlab.edu/). This tool handles submission of multiple queries while keeping track of what's been completed.
 
 ## Quick Start
 
