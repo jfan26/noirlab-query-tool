@@ -87,20 +87,37 @@ def generate_adql_scripts(output_dir="adql_queries"):
         ra_min, ra_max = ra_min_base, ra_max_base
         if GALACTIC_LAT is not None:
             ra_boundary_left, ra_boundary_right = find_ra_at_dec_crossing(dec_min)
-            if ra_boundary_left is not None:
+            
+            if ra_boundary_left is not None and ra_boundary_right is not None:
+                # Both boundaries found - apply the filter
                 if GALACTIC_LAT == "north":
                     # Keep RA values between the two boundaries (north of the plane)
                     ra_min = max(ra_min_base, ra_boundary_left)
-                    if ra_boundary_right is not None:
-                        ra_max = min(ra_max_base, ra_boundary_right)
+                    ra_max = min(ra_max_base, ra_boundary_right)
                 elif GALACTIC_LAT == "south":
                     # Keep RA values outside the boundaries (south of the plane)
-                    if ra_boundary_right is not None:
-                        # We want RA < left_boundary OR RA > right_boundary
-                        # For simplicity, constrain to the region less than left boundary
-                        ra_max = min(ra_max_base, ra_boundary_left)
-                    else:
-                        ra_min = max(ra_min_base, ra_boundary_left)
+                    # For now, just constrain to left side; could also handle right side
+                    ra_max = min(ra_max_base, ra_boundary_left)
+            elif ra_boundary_left is not None:
+                # Only one boundary found - declination band is entirely on one side
+                # Check a test point to see if it's north or south of the boundary
+                test_ra = (ra_min_base + ra_max_base) / 2
+                test_b = icrs_to_galactic_b(test_ra, dec_min)
+                
+                is_north = test_b > MW_DISK_LAT1
+                
+                if GALACTIC_LAT == "north" and not is_north:
+                    # Want north but entire band is south - skip this declination
+                    ra_min, ra_max = ra_min_base, ra_min_base  # Empty range
+                elif GALACTIC_LAT == "south" and is_north:
+                    # Want south but entire band is north - skip this declination
+                    ra_min, ra_max = ra_min_base, ra_min_base  # Empty range
+                # Otherwise entire band matches filter, keep full range
+        
+        # Skip if RA range is empty (entire band excluded by galactic filter)
+        if ra_min >= ra_max:
+            dec_min = dec_max
+            continue
         
         query = ADQL_TEMPLATE.format(
             ra_min=ra_min,
