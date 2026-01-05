@@ -82,11 +82,10 @@ Optional arguments:
 - `--local_dir` - Local directory to save files (default: current directory)
 - `--log_file` - Query log file to read (default: `query_log.txt`)
 
-NOTE for COOL-LAMPS: Please ssh into lipwig (see below), and run the above command from inside the /usbdata/cool-lamps-fullsky/ directory. This will be where we download and store all the queried data from NOIRLab Data Lab. You do not need to specify any flags (those with "--" in front of them) as I have made the defaults right for our purpose. You will need to download the data from NOIRLab directly to lipwig (this is required since the data files can be many and quite big!) please use a conda environment on lipwig and make sure to also download the code to your home directory on lipwig. The conda executable on lipwig is located in /opt/anaconda3/bin/conda. Please follow the below workflow to download to lipwig.
+NOTE for COOL-LAMPS: Please ssh into lipwig (see below), and run the above command from inside the /usbdata/cool-lamps-fullsky/ directory. This will be where we download and store all the queried data from NOIRLab Data Lab. You do not need to specify any flags (those with "--" in front of them) as I have made the defaults right for our purpose. You will need to download the data from NOIRLab directly to lipwig (this is required since the data files can be many and quite big!) please use a conda environment on lipwig and make sure to also download the code to your home directory on lipwig. The conda executable on lipwig is located in /opt/anaconda3/bin/conda. Please follow the below workflow to download to lipwig. I have created the noirlab_env on lipwig, so you should be able to activate it.
 
 ```bash
-conda create -n noirlab_env python=3.11
-conda activate noirlab_env
+/opt/anaconda3/bin/conda activate noirlab_env
 cd /usbdata/cool-lamps-fullsky
 python download_noirlab_results.py
 ```
