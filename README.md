@@ -4,7 +4,16 @@ Automated tool for submitting ADQL queries to [NOIRLab's Data Lab](https://datal
 
 ## Quick Start
 
-### 1. Set Up Your Environment
+### 1. Clone the Repository
+
+Clone this repository to your local machine. Tip: navigate to a directory where you know you can easily find the code. E.g. I keep my codes in ~/Research/Tools/
+
+```bash
+git clone https://github.com/eriksolhaug/noirlab-query-tool.git
+cd noirlab-query-tool
+```
+
+### 2. Set Up Your Environment
 
 First, create a conda environment:
 
@@ -26,7 +35,7 @@ Then install the required packages:
 pip install -r requirements.txt
 ```
 
-### 2. Generate Queries
+### 3. Generate Queries
 
 To create ADQL queries for a specific region:
 
@@ -36,7 +45,7 @@ python make_noirlab_adql.py
 
 Edit the parameters in `make_noirlab_adql.py` to customize RA/Dec ranges and other settings.
 
-### 3. Run a Query
+### 4. Run a Query
 
 Place `.adql` files in the `adql_queries/` directory, then run:
 
@@ -54,7 +63,7 @@ You can type "q" or Ctrl+C any time to quit. The completed queries will be marke
 
 NOTE for COOL-LAMPS: The first time you run this code, you will want to make a directory in the browser by clicking "Virtual Storage" and typing in "cool-lamps-fullsky" in the New Directory Name field. Then hit "Create" and your new directory should appear. This will be where you save the downloaded data files so you can easily identify them among previously stored files in case you've stored files in the NOIRLab browser before.
 
-### 4. Download Results
+### 5. Download Results
 
 Once your queries have been processed by NOIRLab, download the CSV results:
 
