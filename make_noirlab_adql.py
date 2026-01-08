@@ -5,26 +5,27 @@ import numpy as np
 from astropy.coordinates import SkyCoord
 import astropy.units as u
 
-# Galactic latitude parameters
-GALACTIC_LAT = None  # Set to "north", "south", or None
-MW_DISK_LAT1 = 15.0   # Northern boundary of the Milky Way (degrees) - DO NOT CHANGE
-MW_DISK_LAT2 = -15.0  # Southern boundary of the Milky Way (degrees) - DO NOT CHANGE
-
 # ADQL query parameters
 RA_MIN_BASE = 0
 RA_MAX_BASE = 360
 DEC_START = -90.0
 DEC_END = 90.0
 DEC_STEP = 0.5
-SNR_Z_THRESHOLD = 2.0
+
+# Galactic latitude parameters
+GALACTIC_LAT = None  # Set to "north", "south", or None
+MW_DISK_LAT1 = 15.0   # Northern boundary of the Milky Way (degrees) - DO NOT CHANGE
+MW_DISK_LAT2 = -15.0  # Southern boundary of the Milky Way (degrees) - DO NOT CHANGE
 
 ADQL_TEMPLATE = """
-SELECT ra, dec, dered_mag_g, dered_mag_r, dered_mag_z, type, 
-       snr_g, snr_r, snr_z, maskbits, mag_w1, mag_w2, snr_w1, snr_w2
+SELECT ra, dec, dered_mag_g, dered_mag_r, dered_mag_i, dered_mag_z, type, snr_g, snr_r, snr_i, snr_z, 
+    maskbits, mag_w1, mag_w2, snr_w1, snr_w2, ebv, fitbits, parallax, parallax_ivar, 
+    psfdepth_g, psfdepth_r, psfdepth_i, psfdepth_z, psfdepth_w1, psfdepth_w2, 
+    psfsize_g, psfsize_r, psfsize_i, psfsize_z
 FROM ls_dr10.tractor
 WHERE ra BETWEEN {ra_min} AND {ra_max}
   AND dec BETWEEN {dec_min} AND {dec_max}
-  AND snr_z > {snr_z}
+  AND (snr_z > 1.5 OR snr_i > 1.5)
 """
 
 def galactic_to_equatorial(l_deg, b_deg):
