@@ -83,7 +83,8 @@ def paste_next_query_and_log(directory="adql_queries", log_file="query_log.txt")
         print(f"\n[CLIPBOARD] Copied {next_file} to clipboard.")
 
         # Open browser
-        webbrowser.open("https://datalab.noirlab.edu/legacy/query.php")
+        # webbrowser.open("https://datalab.noirlab.edu/legacy/query.php")
+        webbrowser.open("https://datalab.noirlab.edu/data-explorer")
         print("[INFO] Opened NOIRLab Data Explorer.")
         print("[HELP] Paste the query manually into the ADQL field (Ctrl+V / Cmd+V).")
 
