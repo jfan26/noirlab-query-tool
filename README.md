@@ -63,7 +63,7 @@ The script will:
 
 You can type "q" or Ctrl+C any time to quit. The completed queries will be marked as "DONE_" in the adql_queries/ directory. When running submit_noirlab_adql.py, you will start where you left off at the next query without the prefix "DONE_".
 
-NOTE for COOL-LAMPS: The first time you run this code, you will want to make a directory in the browser by clicking "Virtual Storage" and typing in "cool-lamps-fullsky" in the New Directory Name field. Then hit "Create" and your new directory should appear. This will be where you save the downloaded data files so you can easily identify them among previously stored files in case you've stored files in the NOIRLab browser before.
+NOTE for COOL-LAMPS: The first time you run this code, you will want to make a directory under "VOSpace" by clicking "Create Folder" and name it "cool-lamps-fullsky". Your new directory should appear under VOSpace. This will be where you save the downloaded data files so you can easily identify them among previously stored files in case you've stored files in the NOIRLab browser before.
 
 ### 5. Download Results
 
