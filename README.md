@@ -99,7 +99,7 @@ NOTE for COOL-LAMPS: Please ssh into lipwig (see below), and run the above comma
 ```bash
 source /opt/anaconda3/bin/activate noirlab_env
 cd /usbdata/cool-lamps-fullsky/ra<start_of_your_RA_slice>-<end_of_your_RA_slice>
-/opt/anaonda3/bin/python ../download_noirlab_results.py
+/opt/anaconda3/bin/python ../download_noirlab_results.py
 ```
 
 For example, since I have the slice RA from 0 to 30 degrees, I run:
@@ -107,10 +107,23 @@ For example, since I have the slice RA from 0 to 30 degrees, I run:
 ```bash
 source /opt/anaconda3/bin/activate noirlab_env
 cd /usbdata/cool-lamps-fullsky/ra0-30
-/opt/anaonda3/bin/python ../download_noirlab_results.py
+/opt/anaconda3/bin/python ../download_noirlab_results.py
 ```
 
 Downloading this slice to lipwig took me 2h02min.
+
+A common issue is that the "dl" module cannot be imported. Then running `/opt/anaconda3/bin/python ../download_noirlab_results.py` may not be working, so try running:
+
+```bash
+python ../download_noirlab_results.py
+```
+
+If this doesn't work either, you may also need to install astro-datalab if it does not show up in the conda environment with a `pip list | grep astro-datalab`. Make sure you've activated the noirlab_env conda environment and then run:
+
+```bash
+pip install astro-datalab
+```
+
 
 ### How to ssh into lipwig:
 
