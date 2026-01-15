@@ -1,3 +1,5 @@
+This is a fork of Erik Solhaug's Noirlab tool, designed to automate the query process and pre-check empty queries. 
+
 # noirlab-query-tool
 
 Semi-automated tool for submitting ADQL queries to [NOIRLab's Data Lab](https://datalab.noirlab.edu/). This tool handles submission of multiple queries while keeping track of what's been completed.
