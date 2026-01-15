@@ -112,10 +112,16 @@ cd /usbdata/cool-lamps-fullsky/ra0-30
 
 Downloading this slice to lipwig took me 2h02min.
 
-A common issue is that the "dl" module cannot be imported. Then running `/opt/anaconda3/bin/python ../download_noirlab_results.py` may not be working. You may need to install astro-datalab if it does not show up in the conda environment with a `/opt/anaconda3/bin/pip list | grep astro-datalab`. Make sure you've activated the noirlab_env conda environment and then run:
+A common issue is that the "dl" module cannot be imported. Then running `/opt/anaconda3/bin/python ../download_noirlab_results.py` may not be working, so try running:
 
 ```bash
-/opt/anaconda3/bin/pip install astro-datalab
+python ../download_noirlab_results.py
+```
+
+If this doesn't work either, you may also need to install astro-datalab if it does not show up in the conda environment with a `pip list | grep astro-datalab`. Make sure you've activated the noirlab_env conda environment and then run:
+
+```bash
+pip install astro-datalab
 ```
 
 
