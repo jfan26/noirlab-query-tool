@@ -22,14 +22,14 @@ RA_MIN_BASE = 89.5
 RA_MAX_BASE = 120.5
 DEC_START = -90.0
 DEC_END = 90.0
-DEC_STEP = 3.0
+DEC_STEP = 1
 
 # Galactic latitude parameters
 GALACTIC_LAT = None  # Set to "north", "south", or None
 MW_DISK_LAT1 = 15.0   # Northern boundary of the Milky Way (degrees) - DO NOT CHANGE
 MW_DISK_LAT2 = -15.0  # Southern boundary of the Milky Way (degrees) - DO NOT CHANGE
 PRECHECK_DATA = True  # Check TAP service for data before writing query files
-PRECHECK_PARALLELISM = 4  # Number of concurrent precheck queries (1 = serial)
+PRECHECK_PARALLELISM = 2  # Number of concurrent precheck queries (1 = serial)
 PRECHECK_CACHE_FILE = "precheck_cache.json"
 
 ADQL_TEMPLATE = """
